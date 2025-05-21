@@ -1,6 +1,6 @@
-﻿using Xunit;
+using Xunit;
 
-public class NumeroPrimoTest
+public class TesteNumeroPrimo
 {
     [Theory]
     [InlineData(2, true)]     
@@ -11,22 +11,22 @@ public class NumeroPrimoTest
     [InlineData(13, true)]    
     [InlineData(15, false)]   
     [InlineData(1, false)]    
-    public void IsPrime_Number_ReturnsCorrectResult(int number, bool expected)
+    public void VerificaSeEhPrimo_DeveRetornarResultadoCorreto(int numero, bool esperado)
     {
-        bool result = IsPrime(number);
+        bool resultado = EhPrimo(numero);
 
-        Assert.Equal(expected, result);
+        Assert.Equal(esperado, resultado);
     }
 
-    private bool IsPrime(int number)
+    private bool EhPrimo(int numero)
     {
-        if (number <= 1) return false;
-        if (number == 2) return true;
-        if (number % 2 == 0) return false;
+        if (numero <= 1) return false;
+        if (numero == 2) return true;
+        if (numero % 2 == 0) return false;
 
-        for (int i = 3; i * i <= number; i += 2)
+        for (int i = 3; i * i <= numero; i += 2)
         {
-            if (number % i == 0)
+            if (numero % i == 0)
                 return false;
         }
 
